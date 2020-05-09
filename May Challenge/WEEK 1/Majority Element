@@ -1,0 +1,20 @@
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        ios::sync_with_stdio(false); std::cin.tie(nullptr); std::cout.tie(nullptr);
+        unordered_map<int,int> r;
+        for(auto i:nums){
+            if(r.find(i)==r.end()){
+                r.insert(make_pair(i,1));
+            }
+            else{
+            r[i]++;}
+            if(r[i]>(nums.size()/2))
+            {
+                return i;
+            }
+        }
+        
+    return 0;
+    }
+};

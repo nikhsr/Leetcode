@@ -1,0 +1,17 @@
+class Solution {
+public:
+    bool checkStraightLine(vector<vector<int>>& coordinates) {
+        ios::sync_with_stdio(0);
+        cin.tie(0);
+        cout.tie(0);
+        if(size(coordinates)==2){return true;}
+        int i;
+        for( i=0;i<size(coordinates)-2;i++)
+        {
+            if((coordinates[i+1][1]-coordinates[i][1])*(coordinates[i+2][0]-coordinates[i+1][0])!=
+               (coordinates[i+1][0]-coordinates[i][0])*(coordinates[i+2][1]-coordinates[i+1][1]))
+            {return false;}    
+        }
+        return true;    
+    }
+};
