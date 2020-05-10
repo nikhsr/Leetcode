@@ -1,0 +1,28 @@
+class Solution {
+public:
+    int findJudge(int N, vector<vector<int>>& trust) {
+        ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
+        if(size(trust)==0){return 1;}
+        unordered_map<int,int> judge;
+        for(int i=0;i<size(trust);i++){
+            judge[trust[i][1]]++;
+           
+            
+            
+        }
+        for(int i=0;i<size(trust);i++){
+        auto t=judge.find(trust[i][0]);
+            if(t!=judge.end()){
+                judge.erase(t);
+            }
+        }
+        if(size(judge)==0){return -1;}
+        for(auto it: judge){
+            if(it.second==N-1){
+                return it.first;
+            }
+        }
+        return -1;
+    }
+};
