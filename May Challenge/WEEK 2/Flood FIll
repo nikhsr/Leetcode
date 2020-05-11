@@ -1,0 +1,38 @@
+class Solution {
+public:
+    
+    void util(vector<vector<int>>& image, int c1, int c2,int &i, int &newColor){
+       
+        int m=size(image), n=size(image[0]);
+        
+        
+        if (c1 < 0 || c1 >= m || c2 < 0 || c2 >= n || image[c1][c2] != i ||image[c1][c2] == newColor) 
+            return; 
+      
+        
+        image[c1][c2]=newColor;
+        
+        
+        util( image, c1-1,  c2,i, newColor);
+        
+        util( image,  c1+1, c2,i, newColor);
+        
+        util( image,  c1, c2-1 ,i , newColor);
+       
+        util( image,  c1,  c2+1, i, newColor);
+        
+        
+    }
+    
+    
+    
+    
+    vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int newColor) {
+        ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
+        int init=image[sr][sc];
+        util(image,sr,sc,init,newColor);
+        return image;
+        
+    }
+};
