@@ -1,0 +1,25 @@
+static int __ = []() {
+	std::ios::sync_with_stdio(false);
+	std::cin.tie(nullptr);
+	std::cout.tie(nullptr);
+	return 0;
+}();
+class Solution {
+public:
+    int maxSubarraySumCircular(vector<int>& A) {
+        int max_sum=INT_MIN, min_sum=INT_MAX, min_=0,max_=0,total_sum=0;
+        for(auto x:A){
+            total_sum+=x;
+            
+            max_=max(max_+x,x);
+            min_=min(min_+x,x);
+            max_sum=max(max_sum,max_);
+            min_sum=min(min_sum,min_);
+           
+        }
+        if(max_sum>0){
+            return(max(max_sum,total_sum-min_sum));
+        }
+        return max_sum;
+    }
+};

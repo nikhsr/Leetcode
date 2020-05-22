@@ -1,0 +1,20 @@
+class StockSpanner {
+    stack<pair<int,int>> storage;
+public:
+    
+    StockSpanner() {
+     stack<pair<int, int> >();
+     ios_base::sync_with_stdio(false);
+     cin.tie(NULL);
+    }
+    
+    int next(int price) {
+        int ans=1;
+        while(!storage.empty() && storage.top().first<=price){
+            ans+=storage.top().second;
+            storage.pop();
+        }
+        storage.push({price,ans});
+        return ans;
+    }
+};

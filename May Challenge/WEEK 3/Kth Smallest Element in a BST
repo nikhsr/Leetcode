@@ -1,0 +1,18 @@
+class Solution {
+public:
+    void traversal(TreeNode* root, vector<int> &s)
+    {
+        if(root==NULL){return;}
+        traversal(root->left,s);
+        s.push_back(root->val);
+        traversal(root->right,s);
+        
+    }
+    int kthSmallest(TreeNode* root, int k) {
+       
+        vector<int> s;
+        traversal(root,s);
+        return s[k-1];
+        
+    }
+};
